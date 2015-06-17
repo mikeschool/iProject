@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="newsApp" ng-controller="dataCtrl">
+<head>
+  <title>Rss</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<header class="main-header clear" role="banner">
+	<h1 id="main-logo">Nieuws Site</h1>
+	<nav class="main-nav">
+		<ul>
+			<li ng-repeat="item in menu"  ng-click="url='{{item.link}}'; getData('{{item.link}}')">{{item.title}}</li>
+		</ul>
+	</nav>
+</header>
+<main id="content" class="content clear" role="main" >
+	
+	<%= yield %>
+
+</main>
+</body>
+</html>
